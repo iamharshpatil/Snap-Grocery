@@ -1,0 +1,51 @@
+<%- include('./partials/header'); %>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4"></body>
+    <div class="w-full max-w-sm bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-8">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Admin Login</h2>
+            <form autocomplete="off" class="space-y-6" action="/admin/login" method="POST">
+                <div class="space-y-2">
+                    <label for="email" class="sr-only">Email address</label>
+                    <input id="email" name="email" type="email" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition duration-150 ease-in-out"
+                        placeholder="Email address">
+                </div>
+                <div class="space-y-2">
+                    <label for="password" class="sr-only">Password</label>
+                    <input id="password" name="password" type="password" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition duration-150 ease-in-out"
+                        placeholder="Password">
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember-me" type="checkbox"
+                            class="h-4 w-4 text-black focus:ring-black border-gray-300 rounded">
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+                            Remember me
+                        </label>
+                    </div>
+                    <div class="text-sm">
+                        <a href="#" class="font-medium text-black hover:text-gray-700 transition duration-150 ease-in-out">
+                            Forgot your password?
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit"
+                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition duration-150 ease-in-out">
+                        Sign in
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="px-6 py-4 bg-gray-50 border-t border-gray-200">
+            <p class="text-xs text-center text-gray-500">
+                Protected by reCAPTCHA and subject to the
+                <a href="#" class="font-medium text-black hover:underline">Privacy Policy</a> and
+                <a href="#" class="font-medium text-black hover:underline">Terms of Service</a>.
+            </p>
+        </div>
+    </div>
+</body>
+    <%- include('./partials/footer'); %>

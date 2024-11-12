@@ -1,0 +1,100 @@
+<%- include('./partials/header'); %>
+
+<body class="bg-gray-100 font-sans">
+    <div class="flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-white shadow-md">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <main class="flex-1 overflow-y-auto py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Dashboard Overview -->
+                <div class="mb-8 bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
+                        <h2 class="text-2xl font-semibold text-gray-800">Dashboard Overview</h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-blue-50 p-6 rounded-lg shadow">
+                                <h3 class="text-lg font-medium text-blue-600">Total Products</h3>
+                                <p class="mt-2 text-3xl font-bold text-blue-900"><%= prodcount %></p>
+                            </div>
+                            <div class="bg-green-50 p-6 rounded-lg shadow">
+                                <h3 class="text-lg font-medium text-green-600">Total Categories</h3>
+                                <p class="mt-2 text-3xl font-bold text-green-900"><%= categcount %></p>
+                            </div>
+                            <div class="bg-purple-50 p-6 rounded-lg shadow">
+                                <h3 class="text-lg font-medium text-purple-600">New Orders</h3>
+                                <p class="mt-2 text-3xl font-bold text-purple-900">30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Manage Products -->
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
+                            <h2 class="text-2xl font-semibold text-gray-800">Manage Products</h2>
+                        </div>
+                        <div class="p-6">
+                            <form enctype="multipart/form-data" autocomplete="off" class="space-y-4" action="/products" method="POST">
+                                <h3 class="text-lg font-medium text-gray-700">Create Product</h3>
+                                <input type="text" name="name" placeholder="Product Name" required
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <input type="number" name="price" placeholder="Product Price" required
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <input type="text" name="category" placeholder="Category" required
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <textarea name="description" placeholder="Product Description" rows="4"
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                <input type="number" name="stock" placeholder="Stock Quantity" required
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <input type="file" name="image" required
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <button type="submit"
+                                    class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out">
+                                    Create Product
+                                </button>
+                            </form>
+
+                            <form autocomplete="off" class="mt-8 space-y-4" action="/products/delete" method="POST">
+                                <h3 class="text-lg font-medium text-gray-700">Delete Product</h3>
+                                <input type="text" name="product_id" placeholder="Product ID" required
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                                <button type="submit"
+                                    class="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition duration-150 ease-in-out">
+                                    Delete Product
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Manage Categories -->
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
+                            <h2 class="text-2xl font-semibold text-gray-800">Manage Categories</h2>
+                        </div>
+                        <div class="p-6">
+                            <form autocomplete="off" class="space-y-4" action="/categories/create" method="POST">
+                                <h3 class="text-lg font-medium text-gray-700">Create or Update Category</h3>
+                                <input type="text" name="name" placeholder="Category Name" required
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                <button type="submit"
+                                    class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-150 ease-in-out">
+                                    Save Category
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+    <%- include('./partials/footer'); %>
